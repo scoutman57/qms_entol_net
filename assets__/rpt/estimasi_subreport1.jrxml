@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estimasi_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="07cd4a21-859b-45fe-a8ee-89d3a15393b5">
+	<property name="ireport.zoom" value="1.1000000000000132"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+trans_transaksi_ujo_estimasi_report.id,
+trans_transaksi_ujo_estimasi_report.tanggal,
+trans_transaksi_ujo_estimasi_report.nama_kustomer,
+trans_transaksi_ujo_estimasi_report.rute,
+trans_transaksi_ujo_estimasi_report.jumlah_ritase,
+trans_transaksi_ujo_estimasi_report.estimasi_ujo,
+trans_transaksi_ujo_estimasi_report.total_estimasi
+FROM
+trans_transaksi_ujo_estimasi_report
+WHERE
+trans_transaksi_ujo_estimasi_report.tanggal = $P{parameter1}]]>
+	</queryString>
+	<field name="id" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_kustomer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rute" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah_ritase" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estimasi_ujo" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_estimasi" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="13">
+			<staticText>
+				<reportElement x="0" y="0" width="553" height="13" uuid="e806fa77-bc32-42a5-98e7-14c58abacdf7"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="0" width="176" height="13" uuid="9aa6cb9a-46ca-4e2d-b51c-a24e688214f0"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="79" height="13" uuid="e81866d4-7f2a-4f64-8927-b704ac385361"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="0" width="120" height="13" uuid="b2311eb6-43ae-4f0b-8356-861a7a36248b"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="0" width="138" height="13" uuid="d7b8f8df-a4fe-4ea0-80a3-e4b9fb69190d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="0" width="166" height="13" uuid="25320974-3097-48b4-8791-12a45eceb6c2"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Rencana Kerja / Kebutuhan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="68" height="13" uuid="16d3669b-8558-46e7-8658-c37057c67730"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="108" height="13" uuid="4992d10e-eb38-4309-b69b-a3166a2e9f54"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Harga Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="0" width="128" height="13" uuid="21b3bc7a-67c4-4354-8362-a99084802886"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Kebutuhan Uang Muka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="25" height="13" uuid="dc3d08eb-ca06-414e-9c59-252a9538869f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="0" width="176" height="13" uuid="e5ce6094-219d-486d-a33d-78f83aa36ba2"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="0" width="120" height="13" uuid="4a9be826-e242-4e90-b3e6-0d143ab3c240"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="553" height="13" uuid="f5273f08-c02f-4a68-9968-ba4457e3cd12"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="0" width="166" height="12" uuid="a50213f4-ba37-434c-927b-6599cac3ef93"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rute}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="-1" width="56" height="13" uuid="08c6fcca-5742-4232-aa5a-87e26a7d0192"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah_ritase}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="305" y="-1" width="108" height="13" uuid="2806e907-0613-4059-8188-37ac4e7d6d67"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estimasi_ujo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="305" y="-1" width="14" height="10" uuid="e8be086e-1b4f-465d-8293-ce362e2e711b"/>
+				<textElement>
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="-1" width="14" height="10" uuid="0cb83712-2a07-4388-a43e-0413e1c555fa"/>
+				<textElement>
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<text><![CDATA[Rp]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="443" y="0" width="108" height="12" uuid="8797428c-4fb7-4a5b-90b8-de82beb4b313"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_estimasi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

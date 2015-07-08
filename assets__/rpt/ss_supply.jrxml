@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ss_supply" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a600610-1723-4a04-90f0-d5a518fd281b">
+	<property name="ireport.zoom" value="1.3310000000000222"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="109"/>
+	<parameter name="ss_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[CALL ss_supply_new ($P{ss_no})]]>
+	</queryString>
+	<field name="ss_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="wo_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomor_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomor_rangka" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mechanic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_group" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="payment_code" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="project_code" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="driver_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_personil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="material_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_owner" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fax" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="country" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="city" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="address2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="address1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_begin" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_end" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kilometer" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hourmeter" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_rangka" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vendor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String"/>
+	<field name="brand" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="subtotal1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="18" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="169" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="555" height="83" uuid="586df3c0-ad42-4983-926d-142a4690d6cc"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="6" width="166" height="14" uuid="a4114065-e468-498f-8db6-6b0afd0867fd"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Doc.FMS.Ver.01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="40" width="172" height="15" uuid="bcb2800c-83ab-49b9-b1fb-89dd54d000b5"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[JL. Raya Merak km 115 ,Rawaarum]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="55" width="61" height="15" uuid="7c631649-754e-4892-8841-34ac6f00ce08"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[SS No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="70" width="61" height="15" uuid="07d7eb0a-ee77-424b-8f78-052035456470"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="55" width="6" height="15" uuid="84462b61-80c7-49b9-834e-4de5384549da"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="70" width="6" height="15" uuid="67578475-1d7c-4ff1-85f7-28349ea14d46"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="25" width="220" height="30" uuid="0ed0573e-a5b7-4a49-8632-5fe5eaba5ec2"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLY SLIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="55" width="149" height="15" uuid="dbd21b9d-0d8c-4194-8941-ab56a7922729"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Grogol, Cilegon, Banten]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="26" width="200" height="15" uuid="cf44b685-06ca-4428-9bcc-bd1ab80c2db0"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT BUANA CENTRA SWAKARSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="69" width="190" height="15" uuid="9c5685de-1575-4b31-95df-73eb43289840"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Phone  ; 0254-570555 Fax. 0254-570666]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="85" width="555" height="83" uuid="a728e1ca-7ff2-44b8-a033-ab2167df89aa"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="85" width="96" height="12" uuid="54cbdd3e-7e7e-4838-8861-b7e4760eb364"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[CUSTOMER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="100" width="96" height="12" uuid="112d5815-4f7f-4672-810a-035e4a801c9a"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="112" width="96" height="12" uuid="71f53045-68c4-4444-8514-62baf8432218"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Contact Person]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="124" width="96" height="12" uuid="236f14b5-eaa9-4dda-b1c0-bddcd45bc21e"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="136" width="96" height="12" uuid="c9ae4743-60fa-4224-851f-3003343546e2"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Phone/Fax.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="148" width="96" height="12" uuid="1bfc8432-ce9f-40b6-94fa-0e3cfa618648"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Payment Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="113" width="96" height="12" uuid="b9fe1bce-b90d-442f-9f14-926d38456ed5"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Brand. Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="101" width="96" height="12" uuid="e9171fd5-dd56-4503-8e30-b1277e96952d"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Unit No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="125" width="96" height="12" uuid="5aa538eb-391c-485b-a2ed-ddad2940484a"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Kilometer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="137" width="96" height="12" uuid="834bf35a-7cc5-4eb1-85f5-4fe539d89460"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Hourmeter	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="89" width="96" height="12" uuid="0a12dcaf-5044-4945-a83b-8ff110db80a4"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Project Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="148" width="96" height="12" uuid="7ef8bfef-b795-4060-9975-7658edbc26de"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Mechanic I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="100" width="6" height="12" uuid="a714faee-79ed-43f3-a21b-79c53742aaf8"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="112" width="6" height="12" uuid="a7a3d4db-4f16-4098-81d1-24ffd0a08188"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="124" width="6" height="12" uuid="3ed90953-7a4d-45ee-9f40-9e5d9303b2d0"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="136" width="6" height="12" uuid="8e6d266a-5886-4cdf-8ca1-44e313da65bf"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="148" width="6" height="12" uuid="00f73e3c-c134-44c1-80b0-f0390dea53c3"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="137" width="6" height="12" uuid="9f8976c9-c3ce-4452-bb6f-e52797c3f190"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="89" width="6" height="12" uuid="d2c78ad8-7f6e-4f07-b947-b82a9c1fcc8f"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="113" width="6" height="12" uuid="601a1e5c-6702-427f-b71c-8964e6da3551"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="101" width="6" height="12" uuid="73dc131d-4252-4162-b105-355ab7b08115"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="125" width="6" height="12" uuid="cffafcb8-28dd-42dc-823e-929cdf0ff6cf"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="148" width="6" height="12" uuid="8c7c6cc3-47e0-4b5f-a0eb-bdf890040915"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="431" y="55" width="100" height="15" uuid="c12563eb-1159-44ed-a6ed-148dee77b4f9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ss_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, MMM d, &apos;&apos;yy">
+				<reportElement x="431" y="69" width="100" height="15" uuid="5d2406d3-fc0e-40e3-9000-b334e953338a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="89" width="100" height="12" uuid="e5b8e26a-8535-4e7c-b2de-72497d58a3ed"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{project_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="101" width="100" height="12" uuid="06bfa6bd-2cbb-4572-a87f-e79618cc43f1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomor_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="112" width="74" height="12" uuid="be5a91bd-9276-462b-a95f-d7a25e93e50a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="124" width="100" height="12" uuid="80cb603f-d21b-4e39-bcf9-1a8274a7bad2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kilometer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="135" width="100" height="12" uuid="36be1a7f-8908-44d3-a97c-f1fd3c218f01"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hourmeter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="148" width="100" height="12" uuid="f56c7f99-6a6e-43c3-b2cd-bcfa107764be"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mechanic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="100" width="100" height="12" uuid="85d15aa5-db58-472f-8597-7e2a5b04ed5a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_owner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="112" width="100" height="12" uuid="977b036a-cdbf-433f-901c-5d86c3a9d7fd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="124" width="63" height="12" uuid="c7c457df-861c-4a35-9e46-c14ecebd7b5f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="136" width="63" height="12" uuid="1954d2fd-1a05-445e-88ae-5f170c181f7e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="148" width="100" height="12" uuid="3e06854d-865a-4af6-b19c-6ea0d0f58385"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="124" width="99" height="12" uuid="cf843554-54ef-4b59-8448-b5d1a1f150f9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="136" width="63" height="12" uuid="6071329c-75f9-47ca-9b91-fa86cee00dfa"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fax}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="4" y="5" width="124" height="20" uuid="862668c4-ce3e-4623-a8c6-1acc309aa3fb"/>
+				<imageExpression><![CDATA["repo:header_logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="16" forecolor="#000000" backcolor="#CCCCCC" uuid="14d36e60-358c-4e39-84ff-dd77ef4bcfe0"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="1" width="112" height="15" uuid="e62359e6-9909-4393-9fe3-693041ca91ec"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL ST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="63" height="15" uuid="07ff1f34-9c81-4d87-847f-e68f849b0155"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="1" width="255" height="15" uuid="7724aa51-eebd-48ce-90e4-443a794eba3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="1" width="44" height="15" uuid="52a57bca-05d2-48f0-83bd-3a0660c078c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="1" width="79" height="15" uuid="aa996e7f-cf8d-4839-aa02-2170290eac46"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="18" width="555" height="1" uuid="6ecb4dcb-11e0-4c43-b8a3-eda6c0d09477"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="4bf186f6-2bb8-4336-8f2f-dbe8d6de3f41"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="3" width="62" height="15" uuid="0fe7d404-ebea-4ed8-ba3b-4b77431d8514"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="63" y="3" width="255" height="15" uuid="6ea24967-7573-4638-8948-8d8240395f3a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="318" y="3" width="46" height="15" uuid="35608d0a-ac46-4550-a512-bb56c3f1e3c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="492" y="3" width="63" height="15" uuid="5bf2779c-ab39-4523-a6d6-3c965c17bbf8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="386" y="3" width="53" height="15" uuid="16f91418-ab77-4d7f-a7be-994fc95407a5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="3" width="22" height="15" uuid="da3bb2f0-e1d4-4df3-aaac-085c1a29b312"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[IDR.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="3" width="51" height="15" uuid="bef84d2a-df09-42f7-9af7-48c0ca52325f"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[IDR.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="14" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="348" height="13" uuid="0726e333-2e67-4f8c-84b0-663c6a44e82b"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[All Contens are Copyright © 2014 BCS-Logistics System All rights reserved.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="148" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="54" width="555" height="92" uuid="b96d95f0-adbd-4cee-b1b3-4035abef148d"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="74" width="113" height="12" uuid="1a4475a8-32c5-4c59-99d0-6ae3e056dbbc"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Maintenance Head]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="74" width="114" height="12" uuid="aebce8bf-47e3-4dc6-b714-d996a745fbaf"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Driver]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="127" width="114" height="1" uuid="a9f5b0ca-d925-4c53-bbcb-fcf6587bf056"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="431" y="132" width="25" height="10" uuid="ce82e0a5-d99f-4b55-b354-32db01d7dbb4"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="130" width="22" height="10" uuid="16a09548-d268-4df9-a718-1a2fcf9daea4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="431" y="129" width="113" height="1" uuid="b5463e91-ce04-4916-8d0a-d90e03c30923"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="112" width="100" height="15" uuid="d585500a-3730-416c-9e07-b8791a8cbb3f"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_personil}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, MMM d, &apos;&apos;yy" isBlankWhenNull="true">
+				<reportElement x="43" y="130" width="71" height="10" uuid="fc57e671-54f8-4b4d-b50e-22e82e66a945"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, MMM d, &apos;&apos;yy" isBlankWhenNull="true">
+				<reportElement x="462" y="132" width="82" height="10" uuid="c55ebe7b-02d5-42ce-a1d9-10d907d59e87"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="352" y="3" width="87" height="10" uuid="f4cdcb90-4e22-43b7-a0b9-9acd9045a7b0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL I]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="54" width="555" height="1" uuid="ff8de6fd-6293-426e-a57a-7f6749e5ed85"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="268" y="55" width="200" height="15" uuid="27959202-6531-4430-8ab5-5097122e48ad"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT BUANA CENTRA SWAKARSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="74" width="96" height="12" uuid="ef6fa5c4-d693-40d8-ab96-ff28c9da92a1"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Mechanic I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="131" width="25" height="10" uuid="8ccb552c-d95c-460e-93e6-fbaa3e545ef4"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<textField pattern="EEE, MMM d, &apos;&apos;yy" isBlankWhenNull="true">
+				<reportElement x="298" y="131" width="88" height="10" uuid="71ae8379-be0a-4315-8e93-955eb0a66d20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, MMM d, &apos;&apos;yy" isBlankWhenNull="true">
+				<reportElement x="153" y="130" width="84" height="10" uuid="9d96e0f2-dbb9-4c28-a52b-ed5088974edc"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="127" y="74" width="114" height="12" uuid="e1a05cef-fab5-485a-b720-4112414c72d4"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<text><![CDATA[Supervisor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="130" width="21" height="10" uuid="cc6c3af2-7fdc-4cab-9552-54ceb97b897e"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="127" y="127" width="114" height="1" uuid="a92254fe-c09e-4cc2-9f1e-b9e5454e4d44"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="268" y="128" width="114" height="1" uuid="decea014-71d1-441b-9af5-0eb1812d2813"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="352" y="13" width="87" height="10" uuid="4f501552-bfbb-4209-987a-6c863248c194"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[DISC.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="23" width="87" height="10" uuid="2c59efd7-9ba6-405c-8592-f48b4531ffbb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="33" width="87" height="10" uuid="e375331b-0009-4ae0-a5c1-cc9645ed32dc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[PPN 10%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="43" width="87" height="10" uuid="bd3ccf21-6747-40ed-93ec-33e23bdb9ef5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="492" y="3" width="60" height="10" uuid="400999a9-6470-46e8-9dcd-28df30858ca8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{subtotal1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="470" y="3" width="22" height="10" uuid="ef130f8c-3f98-430b-bfa0-1fd80b12ad85"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[IDR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="130" width="6" height="10" uuid="ca38cbf9-c2e6-4d00-847c-e0d0c13e8b15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="130" width="6" height="10" uuid="c9c207d9-0c81-4e35-93aa-756a15eeca79"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="131" width="6" height="10" uuid="dd6e7b20-3de6-4600-801c-f67ef6a84412"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="132" width="6" height="10" uuid="dbedeb52-c786-48dc-b007-2ded0ff28579"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

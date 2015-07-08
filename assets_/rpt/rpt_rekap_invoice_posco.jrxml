@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_rekap_invoice_posco" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9c795f1e-76ca-46f6-b418-2fbb21131c07">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="18"/>
+	<parameter name="par1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par4" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par5" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par6" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par7" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par8" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="par9" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[CALL rpt_rekap_invoice ($P{par1},$P{par2},$P{par3},$P{par4},$P{par5},$P{par6},$P{par7},$P{par8})]]>
+	</queryString>
+	<field name="kustomer" class="java.lang.String"/>
+	<field name="nama_proyek" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kapal" class="java.lang.String"/>
+	<field name="periode" class="java.lang.String"/>
+	<field name="total_berat" class="java.math.BigDecimal"/>
+	<field name="berat_HSM" class="java.math.BigDecimal"/>
+	<field name="berat_YARD" class="java.math.BigDecimal"/>
+	<field name="harga_HSM" class="java.math.BigDecimal"/>
+	<field name="harga_YARD" class="java.math.BigDecimal"/>
+	<field name="total_invoice" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="0" width="568" height="20" uuid="7520c67c-0d67-4d0e-bbf4-00a17460112d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMMERCIAL INVOICE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="20" width="568" height="20" uuid="9905177d-2159-492f-ba52-b510d36f47f8"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BUANA CENTRA SWAKARSA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="66" height="10" uuid="e9465374-2fbf-485a-879e-730d4fb2569f"/>
+				<imageExpression><![CDATA["D:\\xampp\\htdocs\\invoice\\assets\\rpt\\Logo BCS.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="20" uuid="84a2132d-f49d-4fdc-b0e3-4dda77fe2301"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="80" height="20" uuid="776540e7-6c15-4a48-8cd5-b84c6b5b249b"/>
+				<textElement>
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proyek]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="3" width="108" height="20" uuid="bf275b53-ebd7-4bc7-8f37-6c2904024d40"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kustomer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="23" width="108" height="20" uuid="5a565b60-dbc7-4fa5-81b8-a579c734b6b7"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_proyek}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="4" width="80" height="34" uuid="d5dd9253-6b42-4063-898b-53ebd58a41b4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Kapal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="4" width="80" height="34" uuid="526b86c6-660e-4bbc-afef-c7ee17fd63a9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="4" width="80" height="34" uuid="1d9d1115-9f28-4117-85f3-816028db1acb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tonase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="24" width="80" height="14" uuid="9b3c3d3b-437b-40d4-b022-67cbee038e61"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HSM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="24" width="80" height="14" uuid="e6f68009-cfca-4351-935f-bfa64ce83077"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YARD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="24" width="80" height="14" uuid="cd8e4c77-beb2-42d4-8c2b-40e142116d01"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HSM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="568" y="24" width="80" height="14" uuid="edc97b4e-3f5f-451a-9835-ccb34ae36e75"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YARD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="666" y="4" width="80" height="34" uuid="62379597-6f59-4a99-bbb8-03421e44fa49"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Invoice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="4" width="175" height="20" uuid="dee47510-7cd6-4335-a804-0ffa50574438"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lokasi Bongkar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="4" width="169" height="20" uuid="40fedc58-0b2c-4329-94e0-1c858bac3c84"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<line>
+				<reportElement x="479" y="23" width="169" height="1" uuid="796ba35f-f74a-4cd5-a684-7be5dde6abb8"/>
+			</line>
+			<line>
+				<reportElement x="288" y="23" width="175" height="1" uuid="0393b290-6b42-4092-aed7-9cbf38c54c5b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="3" width="802" height="1" uuid="a230c605-d38d-4181-8b3f-62c2853f0f72"/>
+			</line>
+			<line>
+				<reportElement x="0" y="39" width="802" height="1" uuid="31b17615-d551-46f8-8e00-5da36403f575"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="23" y="4" width="80" height="20" uuid="c45dff82-e899-4438-bfca-9f6dbd2088cf"/>
+				<textFieldExpression><![CDATA[$F{kapal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="4" width="80" height="20" uuid="9d8022e7-a74c-41f1-bb63-5a808fbf525d"/>
+				<textFieldExpression><![CDATA[$F{periode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="4" width="80" height="20" uuid="ea65f680-174e-4aa6-9ae6-64546cae31a0"/>
+				<textFieldExpression><![CDATA[$F{total_berat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="4" width="80" height="20" uuid="3a6c6fa1-e0d4-44b4-a3f7-7af8e9ee4da5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{berat_HSM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="4" width="80" height="20" uuid="a7871f0b-88b8-46b4-8299-64474c99df4d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{berat_YARD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="4" width="80" height="20" uuid="9442bb59-7f6c-49bc-8b15-5c2c90885355"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{harga_HSM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="568" y="4" width="80" height="20" uuid="e40bdf19-3a44-4ba2-9928-b4753666533e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{harga_YARD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="666" y="4" width="80" height="20" uuid="03e00ca7-8777-4dc2-9711-503292d1f44c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{total_invoice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="4" width="23" height="20" uuid="b2246c6c-54a3-4b63-8fcc-4722a4b01252"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

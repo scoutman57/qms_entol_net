@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" scriptletClass="pkg1.ConvertToWord" uuid="8c27f8fc-d71a-4648-9a3d-9b41113a7768">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT tbl_shipping_header.Issue_No,
+       tbl_temp_coil.id,
+       tbl_temp_coil.No_Coil,
+       tbl_temp_coil.Tgl_RB,
+       tbl_temp_coil.Jam_RB,
+       tbl_temp_coil.No_CO,
+       tbl_temp_coil.No_LN,
+       tbl_temp_coil.No_Item,
+       tbl_temp_coil.Kustomer,
+       tbl_temp_coil.Location,
+       tbl_temp_coil.Berat,
+       tbl_temp_coil.Gudang,
+       tbl_temp_coil.Tipe,
+       tbl_temp_coil.Status,
+       tbl_temp_coil.Remark,
+       tbl_temp_coil.Create_ID,
+       tbl_temp_coil.Create_Date,
+       tbl_temp_coil.Create_Time,
+       tbl_temp_coil.Modify_ID,
+       tbl_temp_coil.Modify_Date,
+       tbl_temp_coil.Modify_Time,
+       tbl_temp_coil.Issue_No,
+       tbl_temp_coil.Pilih,
+       tbl_temp_coil.Issue_No_Old,
+       tbl_temp_coil.Pilih_Shipping,
+       tbl_temp_coil.DN_BSI,
+       tbl_temp_coil.Tujuan,
+       tbl_issue_header.id,
+       tbl_issue_header.Issue_No,
+       tbl_issue_header.No_Unit,
+       tbl_issue_header.Tipe_Unit,
+       tbl_issue_header.Status,
+       tbl_issue_header.Create_ID,
+       tbl_issue_header.Create_Date,
+       tbl_issue_header.Create_Time,
+       tbl_issue_header.Modify_ID,
+       tbl_issue_header.Modify_Date,
+       tbl_issue_header.Modify_Time,
+       tbl_issue_header.Create_Shipping,
+       tbl_shipping_detail.id,
+       tbl_shipping_detail.ID_Shipping,
+       tbl_shipping_detail.scan_date,
+       tbl_shipping_header.id,
+       tbl_shipping_header.ID_Shipping,
+       tbl_shipping_header.DN_BSI,
+       tbl_shipping_header.Kode_Kustomer,
+       tbl_shipping_header.Kode_Material,
+       tbl_shipping_header.Asal,
+       tbl_shipping_header.Tujuan,
+       tbl_shipping_header.Tgl_Est_Kembali,
+       tbl_shipping_header.Plant_Bongkar, date_format(tbl_shipping_header.Tgl_Est_Di_Cust,"%d.%m.%y") Tgl_Est_Di_Cust,
+       tbl_shipping_header.POD,
+       tbl_shipping_header.Pilih_Sinkron,
+       tbl_shipping_header.Pilih_Sinkron_POD,
+       tbl_shipping_detail.Berat_Delivery,
+       tbl_shipping_detail.No_Coil_Delivery,
+       tbl_kustomer.Nama_Kustomer,
+       tbl_kustomer.Contact_Person,
+       tbl_kustomer.Telepon,
+       tbl_kustomer.Alamat1_SoldTo,
+       tbl_kustomer.Alamat2_SoldTo,
+       tbl_kustomer.Alamat3_SoldTo,
+       tbl_kustomer.Alamat1_ShipTo,
+       tbl_kustomer.Alamat2_ShipTo,
+       tbl_kustomer.Alamat3_ShipTo
+  FROM (((valid.tbl_shipping_header tbl_shipping_header
+          INNER JOIN valid.tbl_issue_header tbl_issue_header
+             ON (tbl_shipping_header.Issue_No = tbl_issue_header.Issue_No))
+         INNER JOIN valid.tbl_shipping_detail tbl_shipping_detail
+            ON (tbl_shipping_header.id = tbl_shipping_detail.ID_Shipping))
+        INNER JOIN valid.tbl_temp_coil tbl_temp_coil
+           ON (tbl_shipping_detail.No_Coil_Delivery = tbl_temp_coil.No_Coil))
+       INNER JOIN valid.tbl_kustomer tbl_kustomer
+          ON (tbl_kustomer.id = tbl_shipping_header.Kode_Kustomer)
+WHERE tbl_shipping_header.id = $P{parameter1}]]>
+	</queryString>
+	<field name="Issue_No" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No_Coil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tgl_RB" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Jam_RB" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No_CO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No_LN" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No_Item" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kustomer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Location" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Berat" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Gudang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipe" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Remark" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Create_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Create_Date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Create_Time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Modify_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Modify_Date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Modify_Time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pilih" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Issue_No_Old" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pilih_Shipping" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DN_BSI" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tujuan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No_Unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipe_Unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Create_Shipping" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID_Shipping" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="scan_date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kode_Kustomer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kode_Material" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Asal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tgl_Est_Kembali" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Plant_Bongkar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tgl_Est_Di_Cust" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="POD" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pilih_Sinkron" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pilih_Sinkron_POD" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Berat_Delivery" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No_Coil_Delivery" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nama_Kustomer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Contact_Person" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat1_SoldTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat2_SoldTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat3_SoldTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat1_ShipTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat2_ShipTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat3_ShipTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="Berat_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{Berat}]]></variableExpression>
+	</variable>
+	<variable name="Berat_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Berat}]]></variableExpression>
+	</variable>
+	<filterExpression><![CDATA[new Boolean(true)]]></filterExpression>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="279" splitType="Stretch">
+			<rectangle>
+				<reportElement x="325" y="161" width="230" height="30" uuid="13ebf520-f90e-4ddb-9104-d3ffb1d55155"/>
+			</rectangle>
+			<textField>
+				<reportElement x="5" y="73" width="271" height="20" uuid="cc225ba1-7041-45c7-913d-54f5a856ed1b"/>
+				<textFieldExpression><![CDATA[$F{Nama_Kustomer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="93" width="271" height="20" uuid="98859dfb-865d-47fe-ab86-ed3f67728952"/>
+				<textFieldExpression><![CDATA[$F{Alamat1_SoldTo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="113" width="271" height="20" uuid="7db40263-0a89-413f-be4c-a3c4413509bd"/>
+				<textFieldExpression><![CDATA[$F{Alamat2_SoldTo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="133" width="271" height="20" uuid="f056410d-95b8-47eb-80be-65b03846437a"/>
+				<textFieldExpression><![CDATA[$F{Alamat3_SoldTo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="186" width="271" height="20" uuid="0224683e-86dd-4051-a43a-ca89a0121433"/>
+				<textFieldExpression><![CDATA[$F{Alamat1_ShipTo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="206" width="271" height="20" uuid="c05bc5f8-2237-4e79-80c2-415d5130fb4f"/>
+				<textFieldExpression><![CDATA[$F{Alamat2_ShipTo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="226" width="271" height="20" uuid="a1bfea4c-d1a0-42b8-a99d-681087df963f"/>
+				<textFieldExpression><![CDATA[$F{Alamat3_ShipTo}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="354" y="6" width="141" height="30" uuid="eeccaa8d-e887-4c6a-b824-dde7a5d51489"/>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="125.0" textPosition="none">
+					<jr:codeExpression><![CDATA[$F{DN_BSI}]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+			<staticText>
+				<reportElement x="5" y="166" width="271" height="20" uuid="b92e597e-241e-44d9-9b4a-5c1c37479502"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ship to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="53" width="100" height="20" uuid="58b82f7f-e9c6-4eec-a5e6-40638089b77e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sold to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="6" width="158" height="40" uuid="3814b3bc-428e-42f6-8067-81e65b6d0e61"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Picking List
+Customer Order]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="53" width="100" height="20" uuid="5951a92c-b464-4f30-bce7-f2da71f4e592"/>
+				<textFieldExpression><![CDATA[$F{DN_BSI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="53" width="100" height="20" uuid="ab1d1a33-7c10-42e3-b71b-b0367788161f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Delivery No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="93" width="100" height="20" uuid="112ea6a9-8b37-4164-b3e5-abcce1859048"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date Printed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="113" width="100" height="20" uuid="741ba792-2643-412c-acf4-5ddd4d631555"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Est Arriving Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="133" width="100" height="20" uuid="0c115a2c-1585-4dc6-86d6-c09aab790ccd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CO Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="166" width="100" height="20" uuid="03018240-515d-483f-9a30-5dcd1c1f3cd4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="53" width="16" height="20" uuid="14cb30e8-9788-4a39-ab26-069cece4478b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="93" width="16" height="20" uuid="a1307123-3b94-4cd4-8044-9ee7d53f44de"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="113" width="16" height="20" uuid="88d01bee-52d0-47ea-8df1-5b146bb00283"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="133" width="16" height="20" uuid="03afe8a0-9728-44ed-9d9c-8171cf90db72"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="166" width="16" height="20" uuid="5d00a225-a6e6-40ff-b11b-663a7a8997db"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="455" y="113" width="100" height="20" uuid="91051e7e-4f95-44b1-af64-e4038d907044"/>
+				<textFieldExpression><![CDATA[$F{Tgl_Est_Di_Cust}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="133" width="100" height="20" uuid="c8c1c75a-2282-4611-be31-afe6c0f99246"/>
+				<textFieldExpression><![CDATA[$F{No_CO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="166" width="100" height="20" uuid="517cbd2c-7581-42aa-bcc2-44c84627729b"/>
+				<textFieldExpression><![CDATA[$F{No_Unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yy">
+				<reportElement x="454" y="93" width="100" height="20" uuid="a4340b10-153f-45cc-a95e-8aa786c92839"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="48" y="2" width="54" height="20" uuid="debef5bc-8500-46de-b905-d243043be865"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="2" width="100" height="20" uuid="000fdb3c-94ba-4571-affc-f29fa0314e9c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Coil Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="7c6f197f-917a-4d1a-b40c-10fcb3b9582c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Weight]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="554" height="1" uuid="6204fb4b-0cce-4dda-a07b-b8b57827a5d9"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="24" width="554" height="1" uuid="60632e4d-da6f-429e-b859-e6b4ee49c1e7"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="48" height="20" uuid="7eed48c6-a07f-4048-a981-9f760a1e11be"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="48" y="0" width="56" height="29" uuid="05cbaebd-e510-4102-9abc-9a2927bfccd0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{No_Item}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.000">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="455" y="0" width="100" height="29" uuid="750b4a8b-f2e2-4504-99f6-166c50e85730"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Berat}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="259" y="0" width="131" height="29" uuid="a53f1562-9116-4fd8-9bc3-0c0dff4ccaeb"/>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="131.0" textPosition="none" displayChecksum="true" displayStartStop="true" extendedCharSetEnabled="true">
+					<jr:codeExpression><![CDATA[$F{No_Coil}]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="104" y="0" width="100" height="29" uuid="31ab0492-33e5-4403-89ea-52d5004f30ef"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{No_Coil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="2" y="0" width="46" height="29" uuid="ecae0029-613a-4471-bd8f-c95b89d3f0ef"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="20" splitType="Immediate">
+			<staticText>
+				<reportElement x="409" y="0" width="46" height="20" uuid="e5b3e40f-74be-4cfa-b885-41624e19ac3c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<textField pattern="###0.000">
+				<reportElement x="455" y="0" width="100" height="20" uuid="96e3f83a-6059-4f1f-8277-75358e0de681"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Berat_2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="554" height="1" uuid="5ad5da29-f28d-48a6-8a8b-3d601fcfa2cb"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

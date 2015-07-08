@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_posco" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9886db65-8f93-4447-bb6a-807f50b09470">
+	<property name="ireport.zoom" value="1.2100000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[Call rpt_ke_posco ('2014-11-01','2014-12-29')]]>
+	</queryString>
+	<field name="importir" class="java.lang.String"/>
+	<field name="tgl_surat_jalan" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_surat_jalan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomor_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_kust" class="java.lang.String"/>
+	<field name="supir" class="java.lang.String"/>
+	<field name="asal" class="java.lang.String"/>
+	<field name="tujuan" class="java.lang.String"/>
+	<field name="produk" class="java.lang.String"/>
+	<field name="jumlah" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="satuan_jum" class="java.lang.String"/>
+	<field name="berat" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="satuan_berat" class="java.lang.String"/>
+	<field name="total_invoice" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="297" y="23" width="59" height="20" uuid="145511f5-25e2-47e3-8d4b-5c9d45044f5c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[PERIODE]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="104" y="1" width="600" height="20" uuid="c039dbb8-8422-414a-905d-896a5d19ff3f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORT KS - POSCO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="1" width="800" height="1" uuid="48bbfb24-50ab-40f4-acae-0786bc05e7ee"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="12" width="76" height="15" uuid="41de7d15-0d02-424f-bb97-ace277fc0c64"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTIR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="12" width="83" height="15" uuid="c630ac4e-1341-48cc-a21c-da40148298b1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMOR UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="16" width="73" height="15" uuid="8211dad9-b5d5-43e8-a90e-fc4fdffd66a0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO SURAT JALAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="9" width="101" height="15" uuid="dbdb6afc-7f51-4729-bc62-06e1c0c7b832"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="9" width="78" height="15" uuid="593f071f-2567-469b-8124-02a76d2d9a5c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TONASE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="9" width="67" height="15" uuid="8e4a7cf2-b1d7-4534-a5bc-b72a056b003f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PCS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="16" width="62" height="15" uuid="d7104945-ada8-460e-8adc-49a1d4bd57fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="591" y="9" width="67" height="15" uuid="30936c09-ee64-4568-bf39-7e7c60aed00e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL TIBA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="9" width="102" height="15" uuid="d239c85b-3f96-4304-b203-8aee08d298e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL INFO KE KS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="2" width="134" height="15" uuid="38a4b9d8-9355-47a9-93ac-7704d6ff668d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SURAT JALAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="183" y="16" width="134" height="1" uuid="893ebd09-b32d-4313-9b07-fdb2b33851c6"/>
+			</line>
+			<line>
+				<reportElement x="1" y="30" width="802" height="1" uuid="c1dc307a-a9e2-4a6f-8eaf-b39f996ba7f7"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="1" width="16" height="15" uuid="9dd4cd86-f12f-4ff7-9fff-fa44254e1601"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="2" width="76" height="15" uuid="132e53bd-8f49-48c6-9547-bc4a00a06a6f"/>
+				<textFieldExpression><![CDATA[$F{importir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="2" width="83" height="15" uuid="53b23dfc-2aea-4b12-a309-1c2e4f10aa35"/>
+				<textFieldExpression><![CDATA[$F{nomor_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="2" width="73" height="15" uuid="4a4b6d16-8b74-427c-9ea9-ad8d3f3d03b8"/>
+				<textFieldExpression><![CDATA[$F{no_surat_jalan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="2" width="61" height="15" uuid="938c4c54-fca5-4bed-9144-25e051feadf7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tgl_surat_jalan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="2" width="101" height="15" uuid="21c323e2-dfd9-4576-a142-6377bcec868a"/>
+				<textFieldExpression><![CDATA[$F{produk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="2" width="74" height="15" uuid="3c3ca290-1ff8-4e4b-a96f-063fa7ce149d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{berat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="2" width="66" height="15" uuid="6adb4f64-d59f-4909-8586-f6ce49b1d685"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch"/>
+	</summary>
+</jasperReport>

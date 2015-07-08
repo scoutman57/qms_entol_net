@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rekap_dn" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="026bc451-1d7f-4d92-b6ab-6eae3982ec5d">
+	<property name="ireport.zoom" value="1.6105100000000057"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<parameter name="parameter4" class="java.lang.String"/>
+	<parameter name="parameter5" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[call sp_rekap_dn($P{parameter1},$P{parameter2},$P{parameter3},$P{parameter4},$P{parameter5})]]>
+	</queryString>
+	<field name="nama_kustomer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="par_tgl_dari" class="java.sql.Date"/>
+	<field name="par_tgl_sampai" class="java.sql.Date"/>
+	<field name="tgl_surat_jalan" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_surat_jalan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomor_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supir1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asal" class="java.lang.String"/>
+	<field name="tujuan" class="java.lang.String"/>
+	<field name="nama_produk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sum_jumlah" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode_satuan_jum" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sum_berat" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode_satuan_berat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="v_rekap_dn_tgl_surat_jalan">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="20" uuid="226cfd08-30d8-4dfd-b370-030878911e49"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[REKAP SURAT JALAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="40" width="802" height="20" uuid="bcc2e27d-36d8-4737-8731-20faeddce0c8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Periode : " + $F{par_tgl_dari}+ " - " + $F{par_tgl_sampai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="802" height="20" uuid="78615358-5d4d-496e-aad2-3123388a2986"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nama_kustomer}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="80" width="792" height="1" uuid="e06b5115-2596-4f51-aa68-b191ae81e81d"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="121" y="0" width="83" height="20" uuid="f72cb97d-9e99-465d-b30c-e8eab3881f02"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No.Surat Jalan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="0" width="72" height="20" uuid="3a2d6a12-b862-44ce-8e33-41a940eaf702"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="72" height="20" uuid="7e844cdb-031d-4e22-8cdf-dffa0dc5ce87"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Supir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="0" width="72" height="20" uuid="d1ca9a3d-7a75-417c-aaf5-602987fce47b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Asal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="72" height="20" uuid="02638201-8d9e-438c-9689-cf73db7f2e3e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tujuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="72" height="20" uuid="a51e31e5-69ff-48ec-9e41-e5c8886fb328"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Produk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="564" y="0" width="72" height="20" uuid="a3542a37-9a0f-464d-b881-9a5fb446a9d5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="636" y="0" width="39" height="20" uuid="df6804e6-9c9c-439d-b41f-e245eba3997a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="675" y="0" width="72" height="20" uuid="bd6bb5fc-98b1-475d-802f-198d891f9235"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Berat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="747" y="0" width="45" height="20" uuid="ffda8c35-7c41-4348-83e0-3c4759607b91"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="792" height="1" uuid="10de7d9d-b06e-4977-a015-c1dba6524dfe"/>
+			</line>
+			<staticText>
+				<reportElement x="34" y="0" width="87" height="19" uuid="16bd1a37-1f10-4c86-9e64-c577b66eea02"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tgl.Surat Jalan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="34" height="20" uuid="42aa65df-45de-4a43-be7a-30446ba3aae0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="20" width="34" height="19" uuid="0a179106-3db6-452c-8132-cb1bae056d9f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}+1]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="121" y="0" width="83" height="20" uuid="d92fa2ea-bb39-406e-81d3-bdfa41e17c2f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{no_surat_jalan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="0" width="72" height="20" uuid="7c70635b-8242-4b3a-9b43-0899b9d225a6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nomor_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="72" height="20" uuid="b421c4d0-13d3-4609-af6f-0cb0fa1af209"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{supir1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="72" height="20" uuid="70300fda-f6a8-497e-aa7f-4a81a8d7e4a6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{asal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="72" height="20" uuid="0fa98be9-870b-46d2-9af3-bdc1ad531012"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tujuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="0" width="72" height="20" uuid="80e91f6b-0a1a-43fb-8632-4e3563d88efc"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nama_produk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="564" y="0" width="72" height="20" uuid="f7186198-3c50-4745-98f9-a27e0d150295"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{sum_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="636" y="0" width="39" height="20" uuid="e9b57711-c688-4b9b-b67a-0c06860497eb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{kode_satuan_jum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="675" y="0" width="72" height="20" uuid="c2964c58-e9e7-4407-9d83-ff1c819dee37"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{sum_berat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="747" y="0" width="45" height="20" uuid="1bff24a7-aaf6-4a77-a7a7-40011265161d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{kode_satuan_berat}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="792" height="1" uuid="166a80f5-9761-473b-bba5-a95042773ead"/>
+			</line>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="34" y="0" width="87" height="19" uuid="0c5baa25-a89a-4024-b153-cfe16c4ec5d5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tgl_surat_jalan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="34" y="11" width="34" height="19" uuid="3ba8eaf4-a2e5-41ee-bd2e-ef9a3d1aae51"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}+1]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a64fb2fe-dc31-4b9a-a212-b3092012d915">
+	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<parameter name="parameter4" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[ 		SELECT
+			b.tgl_surat_jalan, b.no_surat_jalan, b.nomor_unit,(SELECT trans_mstr_lokasi.nama_lokasi From trans_mstr_lokasi Where trans_mstr_lokasi.kode_lokasi=(select trans_mstr_route.kode_asal From trans_mstr_route where trans_mstr_route.kode_route= b.kode_route)) As asal,
+  		(SELECT trans_mstr_lokasi.nama_lokasi From trans_mstr_lokasi Where trans_mstr_lokasi.kode_lokasi=(select trans_mstr_route.kode_tujuan From trans_mstr_route where trans_mstr_route.kode_route= b.kode_route)) As tujuan,
+			c.nama_kustomer as nama_kust, d.nama_supir as supir,
+			g.nama_produk as produk, sum(b.jumlah) AS jumlah, 'PCS' as satuan_jum, Sum(b.berat) AS berat, 'TON' as satuan_berat, b.total as total_invoice,
+      a.no_dokumen, a.opt_kustomer, b.tgl_berangkat, b.tgl_est_tiba_di_kust, b.tgl_akt_tiba_di_kust, b.tgl_est_POD, b.tgl_aktual_POD, b.tgl_info_ke_KS
+		FROM trans_transaksi_dn_header_new AS a
+			LEFT JOIN trans_transaksi_dn_detail_new AS b ON b.id_dns = a.id
+			LEFT JOIN xx_mstr_kustomer AS c ON a.kode_kustomer = c.kode_kustomer
+			LEFT JOIN trans_mstr_supir AS d ON b.kode_supir = d.kode_supir
+			LEFT JOIN trans_mstr_produk AS g ON g.kode_produk = b.kode_produk
+      -- LEFT JOIN trans_mstr_proyek AS h ON a.no_dokumen = h.id
+     WHERE (b.tgl_surat_jalan >= $P{parameter1} AND b.tgl_surat_jalan <= $P{parameter2})
+  			  AND b.status_surat_jalan = $P{parameter4} AND a.no_dokumen = $P{parameter3}
+		GROUP BY b.tgl_surat_jalan, b.no_surat_jalan, b.nomor_unit, c.nama_kustomer, d.nama_supir,
+			  g.nama_produk, satuan_jum, satuan_berat;
+]]>
+	</queryString>
+	<field name="tgl_surat_jalan" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_surat_jalan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomor_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asal" class="java.lang.String"/>
+	<field name="tujuan" class="java.lang.String"/>
+	<field name="nama_kust" class="java.lang.String"/>
+	<field name="supir" class="java.lang.String"/>
+	<field name="produk" class="java.lang.String"/>
+	<field name="jumlah" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="satuan_jum" class="java.lang.String"/>
+	<field name="berat" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="satuan_berat" class="java.lang.String"/>
+	<field name="total_invoice" class="java.math.BigDecimal"/>
+	<field name="no_dokumen" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="opt_kustomer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_berangkat" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_est_tiba_di_kust" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_akt_tiba_di_kust" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_est_POD" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_aktual_POD" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_info_ke_KS" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="total" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{jumlah}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="402" y="25" width="71" height="20" uuid="ff3c62bb-0dde-4624-a735-22a1acd2b2df"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[my no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="25" width="71" height="20" uuid="bb35359a-2122-42ae-9bab-626e5ca96ed9"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[my no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="0" width="551" height="15" forecolor="#000000" uuid="54b98291-2c53-4ff1-8440-97286a78135c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[REKAP SURAT JALAN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="24" height="20" uuid="bf700150-88bd-4f83-a042-280f1c5fb029"/>
+				<textFieldExpression><![CDATA[$F{no_surat_jalan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="0" width="69" height="20" uuid="88794c4f-a2f6-42e7-9d80-ecae2ef04c04"/>
+				<textFieldExpression><![CDATA[$F{tgl_surat_jalan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="93" y="0" width="354" height="20" forecolor="#FF3333" backcolor="#FF9999" uuid="e6df8399-f07d-4673-a330-556dd02b27e7"/>
+				<textFieldExpression><![CDATA[$F{nomor_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0">
+				<reportElement x="447" y="0" width="71" height="20" uuid="d422e006-6ba9-4ac7-92e4-17e0631f3968"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="518" y="0" width="37" height="20" uuid="51b780ca-bcd8-450a-a80a-ddc875489254"/>
+				<textFieldExpression><![CDATA[$F{nama_kust}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="423" height="20" uuid="1706a734-0faa-4b98-b9b8-01a921f9c0f5"/>
+				<text><![CDATA[grant total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="447" y="0" width="108" height="20" uuid="fc561923-4ebc-4ae8-8c5c-ba3615c9d60d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
